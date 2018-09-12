@@ -1,11 +1,16 @@
-var demo = {};
+var demo = {}, centerX = 600 / 2, centerY = 700 / 2, cat, speed = 4;
 demo.state0 = function (){};
 demo.state0.prototype = {
-    preload: function (){},
+    preload: function (){
+        game.load.image('menu', 'assets/backgrounds/catto.png');
+    },
     create: function (){
-        game.stage.backgroundColor = '#000000'
-        
+        game.stage.backgroundColor = '#000000';
         addChangeStateEventListeners();
+        
+        game.world.setBounds(0, 0, 600, 700);
+        var menuBG = game.add.sprite(0, 0, 'menu');
+        
     },
     update: function (){}  
 };
@@ -20,7 +25,6 @@ function addKeyCallback(key, fn, args){
 }
 
 function addChangeStateEventListeners(){
-    addKeyCallback(Phaser.Keyboard.ZERO, changeState, 0);
-    addKeyCallback(Phaser.Keyboard.ONE, changeState, 1);
+    addKeyCallback(Phaser.Keyboard.SPACEBAR, changeState, 1);
     addKeyCallback(Phaser.Keyboard.TWO, changeState, 2);
 }

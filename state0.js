@@ -1,4 +1,4 @@
-var demo = {}, centerX = 600 / 2, centerY = 700 / 2, cat, speed = 4;
+var demo = {}, centerX = 600 / 2, centerY = 700 / 2, cat, speed = 150;
 demo.state0 = function (){};
 demo.state0.prototype = {
     preload: function (){

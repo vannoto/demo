@@ -64,16 +64,10 @@ demo.state1.prototype = {
         
         
         //keep score
-        var score = 0;
-        var scoreText;
         scoreText = game.add.text(16, 16, 'score: 0', { font: '15pt Comic Sans MS', fill: '#ffffff' });
-        
-        //change state when all yarns collected/max score is reached
-        // if (score == 50){
-           // game.state.start('state2');
-        //}
    
     },
+    
     update: function (){
         // make sure sprite doesn't keep moving
         cat.body.velocity.x = 0;
@@ -110,6 +104,11 @@ demo.state1.prototype = {
             cat.frame = 2;
             cat.body.velocity.y = -420;
         } 
+        
+        //change state when all yarns collected/max score is reached
+        if (score == 40){
+           game.state.start('state2');
+        }
     }
 }
 

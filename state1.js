@@ -86,7 +86,7 @@ demo.state1.prototype = {
         
         game.physics.arcade.collide(yarnballs, platforms);
         
-        game.physics.arcade.overlap(cat, yarnballs, collectYarn, null, this);
+        game.physics.arcade.overlap(cat, yarnballs, collectYarn, null, this); //PROBLEM LINE
         
         // control sprite with keyboard
         // horizontal movement

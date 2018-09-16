@@ -64,7 +64,7 @@ demo.state1.prototype = {
         
         
         //keep score
-        scoreText = game.add.text(16, 16, 'score: 0', { font: '15pt Comic Sans MS', fill: '#ffffff' });
+        scoreText = game.add.text(16, 16, 'score: ' + score, { font: '15pt Comic Sans MS', fill: '#ffffff' });
    
     },
     
@@ -78,9 +78,11 @@ demo.state1.prototype = {
         // checks if sprite is touching the ground and resets double jump
         var onGround = cat.body.touching.down;
         
+        // allow yarn to collide with platform
         game.physics.arcade.collide(yarnballs, platforms);
         
-        game.physics.arcade.overlap(cat, yarnballs, collectYarn, null, this); //PROBLEM LINE
+        // call collectYarn function when sprite overlaps with yarn
+        game.physics.arcade.overlap(cat, yarnballs, collectYarn, null, this);
         
         // control sprite with keyboard
         // horizontal movement
@@ -106,16 +108,17 @@ demo.state1.prototype = {
         } 
         
         //change state when all yarns collected/max score is reached
-        if (score == 40){
+        if (score == 400){
            game.state.start('state2');
         }
     }
 }
 
+// collect yarn function
 function collectYarn (cat, yarn){
     yarn.kill();
     
-    score += 10;
-    scoreText.text = 'Score: ' + score;
+    score += 100;
+    scoreText.text = 'score: ' + score;
     
 }
